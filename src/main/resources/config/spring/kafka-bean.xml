@@ -5,13 +5,14 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <context:component-scan base-package="com.adelmo.kafka.*"></context:component-scan>
+    <context:component-scan base-package="com.adelmo.kafka.producer"></context:component-scan>
+    <context:component-scan base-package="com.adelmo.kafka.consumer"></context:component-scan>
 
     <bean id="kafkaProducerDemo" class="com.adelmo.kafka.producer.KafkaProducerDemo">
         <property name="properties">
             <props>
                 <prop key="topic">my-replicated-topic</prop>
-                <prop key="bootstrap.servers">127.0.0.1:9092</prop>
+                <prop key="bootstrap.servers">localhost:9092</prop>
                 <prop key="acks">all</prop>
                 <prop key="key.serializer">org.apache.kafka.common.serialization.StringSerializer</prop>
                 <prop key="value.serializer">org.apache.kafka.common.serialization.StringSerializer</prop>
@@ -24,7 +25,7 @@
         <property name="props">
             <props>
                 <prop key="topic">my-replicated-topic</prop>
-                <prop key="bootstrap.servers">127.0.0.1:9092</prop>
+                <prop key="bootstrap.servers">localhost:9092</prop>
                 <prop key="group.id">group1</prop>
                 <prop key="enable.auto.commit">true</prop>
                 <prop key="auto.commit.interval.ms">1000</prop>
@@ -32,7 +33,6 @@
                 <prop key="key.deserializer">org.apache.kafka.common.serialization.StringDeserializer</prop>
                 <prop key="value.deserializer">org.apache.kafka.common.serialization.StringDeserializer</prop>
             </props>
-
         </property>
     </bean>
 
