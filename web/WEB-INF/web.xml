@@ -6,11 +6,11 @@
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:kafka-beans.xml</param-value>
+        <param-value>classpath:config/spring/kafka-bean.xml</param-value>
     </context-param>
 
     <listener>
-        <listener-class>org.springframework.web.servlet.DispatcherServlet</listener-class>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
     <servlet>
@@ -18,7 +18,7 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:spring-mvc-dispatcher.xml</param-value>
+            <param-value>classpath:config/spring/springmvc-servlet.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
