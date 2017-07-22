@@ -12,37 +12,37 @@ import java.util.Properties;
  */
 public class KafkaConsumerDemo {
 
-    Properties properties;
+    private Properties props;
 
-    public KafkaConsumerDemo(Properties properties) {
+    public KafkaConsumerDemo(Properties props) {
         super();
-        this.properties = properties;
+        this.props = props;
     }
 
     public KafkaConsumerDemo() {
     }
 
-    public Properties getProperties() {
-        return properties;
+    public Properties getProps() {
+        return props;
     }
 
-    public void setProperties(Properties properties) {
-        this.properties = properties;
+    public void setProps(Properties props) {
+        this.props = props;
     }
 
-    public String receive() {
+    public String receive(){
 
-        KafkaConsumer<String, String> consumer = new KafkaConsumer<String, String>(properties);
-        consumer.subscribe(Arrays.asList(properties.getProperty("topic")));
+        KafkaConsumer<String,String> consumer = new KafkaConsumer<String,String>(props);
+        consumer.subscribe(Arrays.asList(props.getProperty("topic")));
 
-        String message = "";
-        while (true) {
-            ConsumerRecords<String, String> records = consumer.poll(100);
-            for (ConsumerRecord<String, String> consumerRecord : records) {
-                message += consumerRecord.value();
+        String msg = "";
+        while(true){
+            ConsumerRecords<String,String> consumerRecords = consumer.poll(100);
+            for(ConsumerRecord<String, String> consumerRecord:consumerRecords){
+                msg += consumerRecord.value();
             }
             consumer.close();
-            return message;
+            return msg;
         }
     }
 }
