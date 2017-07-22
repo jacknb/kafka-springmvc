@@ -19,17 +19,17 @@ import java.util.Date;
 public class KafkaController {
 
     @Resource(name = "kafkaProducerDemo")
-    KafkaProducerDemo kafkaProducerDemo;
+    KafkaProducerDemo producer;
 
     @Resource(name = "kafkaConsumerDemo")
-    KafkaConsumerDemo kafkaConsumerDemo;
+    KafkaConsumerDemo consumer;
 
     @RequestMapping(value = "/welcome")
     public ModelAndView welcome() {
-        System.out.println("------welcome-------");
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("welcome");
-        return modelAndView;
+        System.out.println("--------welcome--------");
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("welcome");
+        return mv;
     }
 
     @RequestMapping(value = "/sendmessage", method = RequestMethod.GET)
@@ -46,9 +46,9 @@ public class KafkaController {
     }
 
     @RequestMapping(value = "/onsend", method = RequestMethod.POST)
-    public ModelAndView onsend(@RequestParam("message") String message) {
+    public ModelAndView onsend(@RequestParam("message") String msg) {
         System.out.println("--------onsend--------");
-        kafkaProducerDemo.sendMessage(message);
+        producer.sendMessage(msg);
 
         ModelAndView mv = new ModelAndView();
         mv.setViewName("welcome");
@@ -59,11 +59,12 @@ public class KafkaController {
     public ModelAndView receive() {
         System.out.println("--------receive--------");
 
-        String msg = kafkaConsumerDemo.receive();
+        String msg = consumer.receive();
 
         ModelAndView mv = new ModelAndView();
         mv.addObject("msg", msg);
         mv.setViewName("kafka_receive");
         return mv;
     }
+
 }
