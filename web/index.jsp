@@ -12,7 +12,7 @@
 </head>
 <body>
 <body>
-<h1><a href="/welcome">Welcome</a></h1>
+<h1><a href="/welcome">Begin</a></h1>
 </body>
 </body>
 </html>

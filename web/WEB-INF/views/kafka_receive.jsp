@@ -13,7 +13,7 @@
 </head>
 <body>
     <h1>Kafka_Reveive!!!</h1>
-    <h2>Receive Message : ${msg}</h2>
+    <h2>Receive Message : ${message}</h2>
     <h2><a href="welcome">RETURN HOME</a></h2>
 </body>
 </html>

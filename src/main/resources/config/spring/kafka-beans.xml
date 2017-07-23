@@ -12,7 +12,7 @@
         <property name="properties">
             <props>
                 <prop key="topic">my-replicated-topic</prop>
-                <prop key="bootstrap.servers">127.0.0.1:9092</prop>
+                <prop key="bootstrap.servers">127.0.0.1:9092,127.0.0.1:9093,127.0.0.1:9094</prop>
                 <prop key="acks">all</prop>
                 <prop key="key.serializer">org.apache.kafka.common.serialization.StringSerializer
                 </prop>
@@ -27,7 +27,7 @@
         <property name="props">
             <props>
                 <prop key="topic">my-replicated-topic</prop>
-                <prop key="bootstrap.servers">127.0.0.1:9092</prop>
+                <prop key="bootstrap.servers">127.0.0.1:9092,127.0.0.1:9093,127.0.0.1:9094</prop>
                 <prop key="group.id">group1</prop>
                 <prop key="enable.auto.commit">true</prop>
                 <prop key="auto.commit.interval.ms">1000</prop>
