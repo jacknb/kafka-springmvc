@@ -30,15 +30,15 @@ public class KafkaConsumerDemo {
         this.props = props;
     }
 
-    public String receive(){
+    public String receive() {
 
-        KafkaConsumer<String,String> consumer = new KafkaConsumer<String,String>(props);
+        KafkaConsumer<String, String> consumer = new KafkaConsumer<String, String>(props);
         consumer.subscribe(Arrays.asList(props.getProperty("topic")));
 
         String msg = "";
-        while(true){
-            ConsumerRecords<String,String> consumerRecords = consumer.poll(100);
-            for(ConsumerRecord<String, String> consumerRecord:consumerRecords){
+        while (true) {
+            ConsumerRecords<String, String> consumerRecords = consumer.poll(100);
+            for (ConsumerRecord<String, String> consumerRecord : consumerRecords) {
                 msg += consumerRecord.value();
             }
             consumer.close();

@@ -11,8 +11,8 @@
     <title>Title</title>
 </head>
 <body>
-    <h1>Welcome</h1>
-    <h2><a href="sendmessae">Send a Message</a></h2>
-    <h2><a href="receive">Receive a Message</a></h2>
+<h1>Welcome</h1>
+<h2><a href="sendmessage">Send a Message</a></h2>
+<h2><a href="receive">Receive a Message</a></h2>
 </body>
 </html>

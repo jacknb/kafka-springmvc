@@ -61,6 +61,8 @@ public class KafkaController {
 
         String msg = consumer.receive();
 
+        System.out.println("---" + msg + "----");
+
         ModelAndView mv = new ModelAndView();
         mv.addObject("msg", msg);
         mv.setViewName("kafka_receive");
