@@ -28,6 +28,7 @@ public class KafkaProducerDemo {
     }
 
     public void sendMessage(String message) {
+
         KafkaProducer<String, String> producer = new KafkaProducer<String, String>(properties);
         ProducerRecord<String, String> record = new ProducerRecord<String, String>(properties.getProperty("topic"), message);
         producer.send(record);
